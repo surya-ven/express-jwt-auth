@@ -1,15 +1,15 @@
+if (process.env.NODE_ENV !== 'production') {
+  const dotenv = require('dotenv');
+  dotenv.config();
+  console.log(process.env.NODE_ENV);
+}
+
 import express from "express";
-import dotenv from "dotenv"; // remove for production
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import connectDB from "./db";
 import authRoutes from "./routes/auth.route";
 import { requireAuth, checkUser } from "./middleware/auth.middleware";
-
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config();
-  console.log(process.env.NODE_ENV);
-}
 
 const app = express();
 
